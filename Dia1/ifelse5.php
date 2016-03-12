@@ -2,7 +2,7 @@
 
 $edad = 18;
 $sexo = 'M';
-$origen = 'chihuaua';
+$origen = 'chihuahua';
 
 /*
 if($sexo != 'F' && $edad >=18  ){

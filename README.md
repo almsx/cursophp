@@ -9,4 +9,3 @@
 
 Este git tiene como objetivo dar ejemplos y proyectos de
 PHP mediante código y documentación.
-

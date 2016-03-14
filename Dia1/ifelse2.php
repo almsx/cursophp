@@ -4,7 +4,6 @@ $edad = 19;
 $sexo = 'M';
 
 if($edad >=18){
-	//echo "entregar INE";
 	if($sexo =='M'){
 		echo "entregar cartila militar";
 	} else{

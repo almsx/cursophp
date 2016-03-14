@@ -17,12 +17,10 @@ $shop = array( array( 'Title' => "Rosas",
 $contactos = array('Nombre' => 'Alberto Luebbert', 'Telefono' => '31321143','Direccion'=>'Avenida Siempre Viva', 'Correo'=> 'alberto@ideashappy.com');
 
 
-//for ($row = 0; $row < count($shop); $row++)
 for ($row = 0; $row < count($shop); $row++)
 
 {
     echo "<li>".$shop[$row]["Title"]." cuesta ".$shop[$row]["Price"]." y hay en existencia ".$shop[$row]["Number"]."</li>";
-    //echo "<br />";
 }
 
 

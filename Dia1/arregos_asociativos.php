@@ -1,27 +1,12 @@
 <?php 
 
-$semana = array('Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo');
+# Los arreglos asociativos permiten acceder a sus valore de una forma mas explicita.
 
-# En los arreglos podemos guardar cualquier tipo de dato, incluso podemos guardar un arreglo dentro de otro.
-$arreglo = array('cadenas de texto', 1, array('asd', 123), true);
+$alex = array('telefono' => '9654654', 'edad' => 25, 'apellido' => 'FalconMasters', 'pais' => 'mexico');
 
-# Ejemplo en el que mostramos los dias de la semana en pantalla a partir de nuestro arreglo llamado semana.
-/*
-echo $semana[0] . '<br />';
-echo $semana[1] . '<br />';
-echo $semana[2] . '<br />';
-echo $semana[3] . '<br />';
-echo $semana[4] . '<br />';
-echo $semana[5] . '<br />';
-echo $semana[6] . '<br />';
+# Al igual que en los arreglos indexados, en los asociativos tambien podemos modificar sus valores simplemente accediendo a ellos.
+$alex['telefono'] = '111111';
 
-echo $arreglo[0];
-echo "<br/>";
-echo $arreglo[3];
-*/
-
-$agenda = array('Nombre' => 'Alberto Luebbert', 'Telefono' => '31321143','Direccion'=>'Avenida Siempre Viva', 'Correo'=> 'alberto@ideashappy.com');
-
-echo $agenda['Telefono'];
+echo 'El telefono de Alex es: ' . $alex['telefono'];
 
 ?>

@@ -11,12 +11,10 @@ curso es importante tener un entorno XAMP
 
 ## Ejecutar mi primer PHP
 
-> __php__
+>
 ~~~
 <?php
-
 echo "hola mundo desde PHP!";
-
 ?>
 ~~~
 

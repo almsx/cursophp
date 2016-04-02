@@ -88,7 +88,7 @@
 			}
 			?>
 
-			<?
+			<?php
 			foreach ($vehiculos as $coche) {
 		?>
 			<tr>

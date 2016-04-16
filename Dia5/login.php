@@ -1,27 +1,28 @@
-<?php
+<?php  
 
-echo 'usuario '.$_POST['Username'].'<br/>';
-echo 'pssword '.$_POST['Password'];
+session_start();
 
-<?php
-$con = mysql_connect("server.com","user","pswd");
-if (!$con) {
-  die('Could not connect: ' . mysql_error());
-}
+if(!$_SESSION['nombreApp'])
+{
 
-mysql_select_db("db", $con);
+    header("Location: formulario.html");
+    
+}  
+        $usuario = $_POST['Username'];
+        $password = $_POST['Password'];
 
-$result = mysql_query("select count(1) FROM table");
-$row = mysql_fetch_array($result);
+        include("conexionDB.php");
+        $view_users_query="SELECT * from usuarios WHERE usuario = "."'".$usuario."'"."AND password = "."'".$password."'"; 
+        $run=mysqli_query($dbcon,$view_users_query);  
+  
+        while($row=mysqli_fetch_array($run))  
+        {  
+            $nombre=$row[3];  
+            
+            echo $nombre;
+            $_SESSION['nombreApp'] = $nombre;
+            echo "<a href=logout.php>  Cerrar Sesion</a>";
+        }
 
-$total = $row[0];
-echo "Total rows: " . $total;
 
-mysql_close($con);
-?>
-
-
-
-
-
-?>
+?>  

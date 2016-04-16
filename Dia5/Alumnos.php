@@ -12,8 +12,7 @@
 <div class="table-scrol">  
     <h1 align="center">Alumnos</h1>  
   
-<div class="table-responsive"><!--this is used for responsive display in mobile and other devices-->  
-  
+<div class="table-responsive">
   
     <table class="table table-bordered table-hover table-striped" style="table-layout: fixed">  
         <thead>  
@@ -54,7 +53,7 @@
         ?>  
   
         <tr>  
-<!--here showing results in the table --> 
+
             <td><?php echo $id;  ?></td>
             <td><?php echo $matricula;  ?></td>
             <td><?php echo $nombre;  ?></td>  

@@ -2,12 +2,26 @@
 
 session_start();
 
+/*Revisamos que este logueado en la app*/
 if(!$_SESSION['nombreApp'])
 {
 
     header("Location: formulario.html");
     
 }  
+
+/*Revisamos que haya un POST Previo*/
+
+if (empty($_POST["Username"]) && empty($_POST["Username"]))
+{
+
+       echo "Tu sesión es incorrecta, logueate nuevamente por favor.<br/>";
+       echo "<a href=formulario.html>Ingresar</a>";
+
+}
+ 
+
+else{
         $usuario = $_POST['Username'];
         $password = $_POST['Password'];
 
@@ -24,5 +38,6 @@ if(!$_SESSION['nombreApp'])
             echo "<a href=logout.php>  Cerrar Sesion</a>";
         }
 
+}
 
 ?>  

@@ -1,0 +1,1 @@
+ALTER TABLE usuariosBlog CHANGE nombreCompleto nombres VARCHAR(11) NOT NULL;

@@ -6,10 +6,13 @@ include("../utils/conexionDB.php");
 
 
 if (empty($_POST["UsApp"]) && empty($_POST["PsApp"])){
-
+    /*Opcion 1, inidicar al Usuario loguearse*/
     echo "Vienen vacios o no iniciaste la sesión";
     echo "<br/>";
     echo "<a href=login.html>  Iniciar Sesion</a>";
+    /*Opcion 2, redireccionar al formulario*/
+    //header("Location: login.html");
+   
 
 } else {
 

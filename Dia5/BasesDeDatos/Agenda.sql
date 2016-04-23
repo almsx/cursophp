@@ -1,0 +1,7 @@
+CREATE TABLE Agenda(
+    id_Contacto INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(50) NOT NULL,
+    apaterno VARCHAR(50) NOT NULL,
+    amaterno VARCHAR(50) NOT NULL,
+    telefono VARCHAR(10) NOT NULL
+);

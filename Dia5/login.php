@@ -10,9 +10,9 @@ if(!$_SESSION['nombreApp'])
     
 }  
 
-/*Revisamos que haya un POST Previo*/
+/*Revisamos que haya un POST Previo
 
-if (empty($_POST["Username"]) && empty($_POST["Username"]))
+if (empty($_POST["Username"]) && empty($_POST["Password"]))
 {
 
        echo "Tu sesión es incorrecta, logueate nuevamente por favor.<br/>";
@@ -22,6 +22,7 @@ if (empty($_POST["Username"]) && empty($_POST["Username"]))
  
 
 else{
+    */
         $usuario = $_POST['Username'];
         $password = $_POST['Password'];
 
@@ -38,6 +39,6 @@ else{
             echo "<a href=logout.php>  Cerrar Sesion</a>";
         }
 
-}
+//}
 
 ?>  

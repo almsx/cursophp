@@ -31,3 +31,7 @@ Liga - https://teamtreehouse.com/community/mamp-phpmyadmin-error-1045-after-i-ch
 ## Ligas importantes
 
 Zend Certification - http://www.zend.com/en/services/certification
+
+## Para insertar información en el maquetado de nuestros sitios.
+
+Lorem impsum - http://es.lipsum.com/feed/html

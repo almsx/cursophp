@@ -1,6 +1,6 @@
 <?php  
 
 $dbcon=mysqli_connect("localhost","root","");  
-mysqli_select_db($dbcon,"Clase5");  
+mysqli_select_db($dbcon,"Clase6");  
 
 ?>

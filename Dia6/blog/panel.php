@@ -1,0 +1,6 @@
+<?php
+
+/*Administrador del Blog*/
+
+
+?>

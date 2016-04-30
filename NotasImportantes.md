@@ -60,5 +60,17 @@ if (!$check1_res) {
     printf("Error: %s\n", mysqli_error($con));
     exit();
 }
+
+/*Donde....
+ 
+ * la variable $check1_res es la que tiene
+la query que hicimos para hcer nuestra consulta.
+ * la variable $con es donde tenemos asignada
+la base de datos (Conexión).
+
+*/
+
+
+
 ?>
 ~~~

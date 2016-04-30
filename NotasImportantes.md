@@ -61,15 +61,12 @@ if (!$check1_res) {
     exit();
 }
 
-/*Donde....
+//Donde....
  
  * la variable $check1_res es la que tiene
 la query que hicimos para hcer nuestra consulta.
  * la variable $con es donde tenemos asignada
 la base de datos (Conexión).
-
-*/
-
 
 
 ?>

@@ -28,18 +28,91 @@
             <th>Codigo Postal</th>
             <th>Fecha de Nacimiento</th>
         </tr>  
-        </thead>  
-  
-        <?php  
-        include("../utils/conexionDB.php");
-        $view_users_query="SELECT * from Clientes"; 
-        $run=mysqli_query($dbcon,$view_users_query); 
+        </thead> 
+
+
+<?php
+    
+    
+
+    include("../utils/conexionDB.php");
+	$codigoPostalApp = $_POST['cpBuscador'];
+	$direccionApp = $_POST['direccionBuscador'];
+	$nombreapp = $_POST['nombreBuscador'];
+	$queryBusqueda = "";
+
+    /*Hacer las evaluaciones*/
+
+    //Solo venga nombre
+    if(!$codigoPostalApp && !$direccionApp){
+
+        /*Si deseamos que se haga la busqueda completa por Ana, es decir
+        es igual si buscamos por "ana" mostrara "Ana" o "ana maria"*/
+        $queryBusqueda = "SELECT *FROM Clientes WHERE nombre LIKE '%".$nombreapp."%'";
+        /*Si queremos que unicamente sea "Ana"*/
+        //$queryBusqueda = "SELECT *FROM Clientes WHERE nombre = '".$nombreapp."'";
+        
+    }
+
+    //Solo venga direccion
+    else if(!$nombreapp && !$codigoPostalApp){
+
+        $queryBusqueda = "SELECT *FROM Clientes WHERE direccion LIKE '%".$direccionApp."%'";
+        echo "la query es ".$queryBusqueda;
+
+    }
+
+    //solo venga codigo postal
+    else if(!$nombreapp && !$direccionApp){
+
+        $queryBusqueda = "SELECT *FROM Clientes WHERE codigoPostal LIKE '%".$codigoPostalApp."%'";
+
+    }
+
+    //Combinaciones
+
+    //Venga Vacio Codigo Postal
+    else if(!$codigoPostalApp){
+
+        $queryBusqueda = "SELECT *FROM Clientes WHERE nombre LIKE '%".$nombreapp."%' AND direccion LIKE '%".$direccionApp."%'";
+        echo "la query es ".$queryBusqueda;
+       
+
+    }
+	
+    //Venga Vacio Direccion
+    else if(!$direccionApp){
+
+    }
+    //Venga Vacio Nombre
+    else if(!$nombreapp){
+
+    }
+
+    //Este miuestrame a todos*/
+	//$queryBusqueda = "SELECT *FROM Clientes WHERE nombre LIKE '%".$nombreapp."%' AND direccion LIKE '%".$direccionApp."%'";
+	
+    $run=mysqli_query($dbcon,$queryBusqueda); 
 
         function Edad($fecha){
             list($Y,$m,$d) = explode("-",$fecha);
             echo( date("md") < $m.$d ? date("Y")-$Y-1 : date("Y")-$Y );
         };
-  
+
+    /*imprimir el error*/
+
+
+        if (!$run) {
+            printf("Error: %s\n", mysqli_error($dbcon));
+            exit();
+        }
+
+    //Medir el tamaño de la query//
+
+        //$queryTamano = mysql_num_rows($run);
+        //echo "Mide la query ".$queryTamano;
+
+
         while($row=mysqli_fetch_array($run))  
         {  
             $id = $row[0];

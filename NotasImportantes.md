@@ -49,7 +49,6 @@ ini_set('display_errors', 1);
 
 ## Revision de errores en Query
 
-
 Stack OverFlow - 
 http://stackoverflow.com/questions/15439919/mysqli-fetch-array-expects-parameter-1-to-be-mysqli-result-boolean-given-in
 
@@ -69,3 +68,19 @@ la query que hicimos para hcer nuestra consulta.
 la base de datos (Conexión).
 ~~~
 
+## Sesiones con PHP warning headers
+
+Inicio de la Cabecera en PHP
+~~~
+<?php
+ob_start();
+?>
+~~~
+
+Antes de Terminar nuestro PHP
+
+~~~
+<?php
+ob_end_flush();
+?>
+~~~

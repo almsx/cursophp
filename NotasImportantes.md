@@ -61,7 +61,9 @@ if (!$check1_res) {
     exit();
 }
 
-//Donde....
+?>
+~~~
+Donde....
  
  * la variable $check1_res es la que tiene
 la query que hicimos para hcer nuestra consulta.
@@ -69,5 +71,3 @@ la query que hicimos para hcer nuestra consulta.
 la base de datos (Conexión).
 
 
-?>
-~~~

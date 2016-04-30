@@ -84,3 +84,13 @@ Antes de Terminar nuestro PHP
 ob_end_flush();
 ?>
 ~~~
+
+
+##Olvide agregar un campo en mi tabla
+~~~
+ALTER TABLE Clientes ADD COLUMN telefono VARCHAR(10) NOT NULL AFTER direccion;
+~~~
+Donde....
+ * la columna que quiero agregar es telefono.
+ * el comodin AFTER sirve para indicar que la columna telefono se agregara despues de la columna direccion;
+ * el comodin BEFORE sirve para indicar que la colimna telefono se agregara antes de la columna direccion;

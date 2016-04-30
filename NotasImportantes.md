@@ -35,3 +35,30 @@ Zend Certification - http://www.zend.com/en/services/certification
 ## Para insertar información en el maquetado de nuestros sitios.
 
 Lorem impsum - http://es.lipsum.com/feed/html
+
+
+## ModoDebug en PHP
+
+>
+~~~
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+?>
+~~~
+
+## Revision de errores en Query
+
+
+Stack OverFlow - 
+http://stackoverflow.com/questions/15439919/mysqli-fetch-array-expects-parameter-1-to-be-mysqli-result-boolean-given-in
+
+>
+~~~
+<?php
+if (!$check1_res) {
+    printf("Error: %s\n", mysqli_error($con));
+    exit();
+}
+?>
+~~~

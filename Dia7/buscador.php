@@ -15,7 +15,7 @@
 		<br/>
 		Dirección: <input type="text" name="direccionBuscador"></input>
 		<br/>
-		Codigo Postal: <input type="text" name="cpBuscador"></input>
+		Correo: <input type="text" name="correoBuscador"></input>
 		<br/>
 		<input type="submit" value="Buscar"></input>
 

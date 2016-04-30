@@ -1,3 +1,17 @@
+<?php
+
+//Aqui esta la solucion
+
+/*
+
+
+https://github.com/almsx/cursophp/blob/master/Dia2/OtraCalculadora.php
+
+
+*/
+
+?>
+
 <html>  
 <head lang="en">  
     <meta charset="UTF-8">  
@@ -10,9 +24,10 @@
 <body>  
   
 <div class="table-scrol">  
-    <h1 align="center">Tus Resultados</h1>  
-  
+    
 <div class="table-responsive">
+
+
   
     <table class="table table-bordered table-hover table-striped" style="table-layout: fixed">  
         <thead>  
@@ -28,18 +43,23 @@
             <th>Codigo Postal</th>
             <th>Fecha de Nacimiento</th>
         </tr>  
-        </thead>  
-  
-        <?php  
-        include("../utils/conexionDB7.php");
-        $view_users_query="SELECT * from Clientes"; 
-        $run=mysqli_query($dbcon,$view_users_query); 
+        </thead> 
 
-        function Edad($fecha){
-            list($Y,$m,$d) = explode("-",$fecha);
-            echo( date("md") < $m.$d ? date("Y")-$Y-1 : date("Y")-$Y );
-        };
-  
+
+<?php
+    
+    include("../utils/conexionDB7.php");
+	$correoApp = $_POST['correoAppFiltro'];
+	$direccionApp = $_POST['direccAppFiltro'];
+	$nombreapp = $_POST['nombreAppFiltro'];
+	
+	$queryBusqueda = "SELECT *FROM ClientesTemporal WHERE nombre LIKE '%".$nombreapp."%' AND direccion LIKE '%".$direccionApp."%' AND correo LIKE '%".$correoApp."%'";
+    echo "La query Filtrada es ".$queryBusqueda;
+	
+    $run=mysqli_query($dbcon,$queryBusqueda);
+
+
+
         while($row=mysqli_fetch_array($run))  
         {  
             $id = $row[0];
@@ -71,7 +91,9 @@
             
         </tr>  
   
-        <?php } ?>  
+        <?php } 
+        
+        ?>  
   
     </table>  
         </div>  

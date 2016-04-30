@@ -10,9 +10,17 @@
 <body>  
   
 <div class="table-scrol">  
-    <h1 align="center">Tus Resultados</h1>  
+    <form action="resultadosFiltro.php" method="POST">
+    <h1 align="center">Tus Resultados</h1> 
+         <input type="text" placeHolder="Nombre" name="nombreAppFiltro"></input>
+         <input type="text" placeHolder="Direcc" name="direccAppFiltro"></input>
+         <input type="text" placeHolder="Correo" name="correoAppFiltro"></input>
+         <input type="submit" value="Enviar"></input>
+     </form>
   
 <div class="table-responsive">
+
+
   
     <table class="table table-bordered table-hover table-striped" style="table-layout: fixed">  
         <thead>  
@@ -33,18 +41,21 @@
 
 <?php
     
-    
-
-    include("../utils/conexionDB.php");
-	$codigoPostalApp = $_POST['cpBuscador'];
+    include("../utils/conexionDB7.php");
+	$correoApp = $_POST['correoBuscador'];
 	$direccionApp = $_POST['direccionBuscador'];
 	$nombreapp = $_POST['nombreBuscador'];
 	$queryBusqueda = "";
 
+    function Edad($fecha){
+        list($Y,$m,$d) = explode("-",$fecha);
+        echo( date("md") < $m.$d ? date("Y")-$Y-1 : date("Y")-$Y );
+    };
+
     /*Hacer las evaluaciones*/
 
     //Solo venga nombre
-    if(!$codigoPostalApp && !$direccionApp){
+    if(!$correoApp && !$direccionApp){
 
         /*Si deseamos que se haga la busqueda completa por Ana, es decir
         es igual si buscamos por "ana" mostrara "Ana" o "ana maria"*/
@@ -55,7 +66,7 @@
     }
 
     //Solo venga direccion
-    else if(!$nombreapp && !$codigoPostalApp){
+    else if(!$nombreapp && !$correoApp){
 
         $queryBusqueda = "SELECT *FROM Clientes WHERE direccion LIKE '%".$direccionApp."%'";
         echo "la query es ".$queryBusqueda;
@@ -65,53 +76,50 @@
     //solo venga codigo postal
     else if(!$nombreapp && !$direccionApp){
 
-        $queryBusqueda = "SELECT *FROM Clientes WHERE codigoPostal LIKE '%".$codigoPostalApp."%'";
+        $queryBusqueda = "SELECT *FROM Clientes WHERE correo LIKE '%".$correoApp."%'";
 
     }
 
     //Combinaciones
 
     //Venga Vacio Codigo Postal
-    else if(!$codigoPostalApp){
+    else if(!$correoApp){
 
         $queryBusqueda = "SELECT *FROM Clientes WHERE nombre LIKE '%".$nombreapp."%' AND direccion LIKE '%".$direccionApp."%'";
-        echo "la query es ".$queryBusqueda;
-       
-
+        echo $queryBusqueda;
     }
 	
     //Venga Vacio Direccion
     else if(!$direccionApp){
+        
+        $queryBusqueda = "SELECT *FROM Clientes WHERE nombre LIKE '%".$nombreapp."%' AND correo LIKE '%".$correoApp."%'";
+        //imprimo la query;
+        echo "Viene vacio Direccion y la query es ".$queryBusqueda;
+        //Crear la tabla Temporal para efecto de filtrado;
+
+        # Creo tabla temporal  
+        //$query_create = "CREATE TEMPORARY TABLE ClientesTemporal2 AS ".$queryBusqueda.";";
+        $miQuery = "CREATE TEMPORARY TABLE ClientesTemporal3 AS SELECT *FROM Clientes WHERE nombre LIKE '%ana%' AND correo LIKE '%ana@kmmx.com%'";
+        
+        mysqli_query($dbcon,$miQuery) or die ("Sql error : ".mysqli_error());
 
     }
     //Venga Vacio Nombre
     else if(!$nombreapp){
-
+        $queryBusqueda = "SELECT *FROM Clientes WHERE direccion LIKE '%".$direccionApp."%' AND correo LIKE '%".$correoApp."%'";
+        echo "imprimo la query ".$queryBusqueda;
+    } else {
+        $queryBusqueda = "SELECT *FROM Clientes WHERE nombre LIKE '%".$nombreapp."%' AND direccion LIKE '%".$direccionApp."%'";
     }
 
     //Este miuestrame a todos*/
 	//$queryBusqueda = "SELECT *FROM Clientes WHERE nombre LIKE '%".$nombreapp."%' AND direccion LIKE '%".$direccionApp."%'";
 	
-    $run=mysqli_query($dbcon,$queryBusqueda); 
-
-        function Edad($fecha){
-            list($Y,$m,$d) = explode("-",$fecha);
-            echo( date("md") < $m.$d ? date("Y")-$Y-1 : date("Y")-$Y );
-        };
-
-    /*imprimir el error*/
+    $run=mysqli_query($dbcon,$queryBusqueda);
 
 
-        if (!$run) {
-            printf("Error: %s\n", mysqli_error($dbcon));
-            exit();
-        }
 
-    //Medir el tamaño de la query//
-
-        //$queryTamano = mysql_num_rows($run);
-        //echo "Mide la query ".$queryTamano;
-
+        
 
         while($row=mysqli_fetch_array($run))  
         {  
@@ -144,7 +152,9 @@
             
         </tr>  
   
-        <?php } ?>  
+        <?php } 
+        
+        ?>  
   
     </table>  
         </div>  

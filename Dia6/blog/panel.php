@@ -13,7 +13,7 @@ if (isset($_SESSION['usuarioBlogApp'])) {
 ?>
 	<h1>Blog</h1>
 	<ul>
-		<li><a href="nuevaEntrada.php">Nueva Publicación</a></li>
+		<li><a href="insertarEntrada.php">Nueva Publicación</a></li>
 		<li><a href="listarEntradas.php">Listar Entradas</a></li>
 	</ul>
 

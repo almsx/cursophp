@@ -1,0 +1,1 @@
+INSERT INTO 'noticiasBlog' ('fechaPublicacion','tituloPublicacion','resumenPublicacion','publicacionCompleta','usuarioPublica','categoriaPublica') VALUES ('2016-05-07','publicacion 1','res 1','pub 1','1','1');         

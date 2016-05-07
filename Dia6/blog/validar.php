@@ -24,8 +24,10 @@ if (empty($_POST["userBlog"]) && empty($_POST["passBlog"])){
 
         while($row=mysqli_fetch_array($run)){
 
-            $nombre=$row[3];    
+            $nombre=$row[3];
+            $idAutor=$row[0];    
             $_SESSION['usuarioBlogApp'] = $nombre;
+            $_SESSION['idAutorBlogApp'] = $idAutor;
            
         }
 

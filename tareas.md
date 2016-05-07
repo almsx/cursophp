@@ -40,3 +40,13 @@ http://localhost/cursophp/Dia3/validaCircula.php
 
 Ana comento que el único que no lo hacia
 era el Coche Electrico
+
+
+Temas pendientes por revisar
+
+Trabajar con datos almacenados en archivos
+desde un archivo de Excel 
+
+Expresiones Regulares
+
+Sindicación y Web services

@@ -19,17 +19,18 @@ if (isset($_SESSION['usuarioBlogApp'])) {
 	$publicacionCompleta = $_POST['textoPublicacion'];
 	$categoPub = $_POST['categoriaPublicacion'];
 	$idAutor = $_SESSION['idAutorBlogApp'];
-	//echo "El id de Autor es ".$idAutor;
-
-	//$view_users_query="SELECT * from categoriasBlog ORDER BY nombreCategoria ASC";
+	
 	$insertarEntrada = "INSERT INTO noticiasBlog (fechaPublicacion,tituloPublicacion,resumenPublicacion,publicacionCompleta,usuarioPublica,categoriaPublica) VALUES ('$fechaPub','$tituloPub','$resumenPub','$publicacionCompleta','$idAutor','$categoPub')";
-	//echo $insertarEntrada;
+	
+	if(mysqli_query($dbcon, $insertarEntrada)){
+    	echo "Publicación Correcta";
+    	echo "<br/>";
+    	echo "<a href='panel.php'>Ir al Administrador del Blog</a>";
 
-	while(mysqli_fetch_array($insertarEntrada)){
 
-        echo "Se inserto correctamente tu publicación";
-           
-    }
+	} else{
+    	echo "Error en la consulta $sql. ";
+	}
 
 
 

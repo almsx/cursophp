@@ -12,10 +12,10 @@ Tareas Alberto
 
 Estructura Blog
 
-Insertar Entradas
-Listar entradas
-	Vinculo a Actualizar Entrada Existente
-	Eliminar Entrada Existente
+Ya esta Insertar Entradas
+Ya esta Listar entradas
+	Ya esta Vinculo a Actualizar Entrada Existente
+	Ya esta Eliminar Entrada Existente
 
 
 Tareas para Erick y Ana

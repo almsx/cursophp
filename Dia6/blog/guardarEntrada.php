@@ -23,13 +23,14 @@ if (isset($_SESSION['usuarioBlogApp'])) {
 	$insertarEntrada = "INSERT INTO noticiasBlog (fechaPublicacion,tituloPublicacion,resumenPublicacion,publicacionCompleta,usuarioPublica,categoriaPublica) VALUES ('$fechaPub','$tituloPub','$resumenPub','$publicacionCompleta','$idAutor','$categoPub')";
 	
 	if(mysqli_query($dbcon, $insertarEntrada)){
+    	
     	echo "Publicación Correcta";
     	echo "<br/>";
     	echo "<a href='panel.php'>Ir al Administrador del Blog</a>";
 
 
 	} else{
-    	echo "Error en la consulta $sql. ";
+    	echo "Error en la consulta $insertarEntrada. ";
 	}
 
 

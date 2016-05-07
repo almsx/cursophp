@@ -12,7 +12,6 @@
 	<h1>Noticias</h1>
 
 	<?php
-
 	 	include("../../utils/conexionDB.php");
         
         //$view_users_query="SELECT * from misAlumnos"; 
@@ -33,22 +32,16 @@
     		usuariosBlog.pais,
     		usuariosBlog.apPaterno,
     		usuariosBlog.apMaterno
-
 			FROM noticiasBlog
-
 			LEFT JOIN usuariosBlog ON noticiasBlog.usuarioPublica = usuariosBlog.idUsuario 
 			LEFT JOIN categoriasBlog ON noticiasBlog.categoriaPublica = categoriasBlog.idCategoria
-
 			ORDER BY noticiasBlog.fechaPublicacion DESC
-
 			";
         
         	$run=mysqli_query($dbcon,$view_users_query);  
   
         	while($row=mysqli_fetch_array($run)) { 
-
         		$autor = $row[11] . ' ' . $row[13] . '  ' . $row[14]; 
-
         		?>
 
         		<h1><?php echo $row[2]; ?></h1>
@@ -67,14 +60,11 @@
             	//$ano=$row[3];
 				//$mes=$row[4];
             	//$dia=$row[5];
-
             	-->
             
   
   
         	<?php } 
-
-
 	?>
 	
 </body>
